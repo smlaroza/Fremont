@@ -73,17 +73,25 @@ input {
 .dashboardContainer {
   display: flex;
   justify-content: space-between;
+  width: 1400px;
 }
 
 .dashMain {
   flex: 1;
   padding: 40px;
+  margin-top: 170px;
+  background: rgba(179, 167, 171);
+  border-radius: 20px;
+}
+
+.dashGreeting {
+  margin-left: 10px;
 }
 
 .submitButton {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
-  padding: 5px 5px;
+  padding: 11px;
   width: 100px;
   border: 2px solid white;
   border-radius: 10px;
@@ -92,10 +100,28 @@ input {
   background: transparent;
   cursor: pointer;
   margin-top: 5px;
+  margin-left: 5px;
 }
 
 .actualMessage {
   font-family: Arial, Helvetica, sans-serif;
   color: white;
   font-size: 15px;
+}
+
+.displayName {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  margin-right: 30px;
+}
+
+.chatContainer {
+  display: flex;
+}
+
+.sendMessage {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
 }

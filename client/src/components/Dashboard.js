@@ -19,17 +19,6 @@ export default (props) => {
       </div>
 
       <div className="dashMain">
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          />
-
-          <button className="submitButton" type="submit">
-            Submit
-          </button>
-        </form>
         <div className="chatContainer">
           <div className="users">
             {users.map((u, i) => (
@@ -44,6 +33,18 @@ export default (props) => {
             ))}
           </div>
         </div>
+        <form className="sendMessage" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+          <div className="submitButtonContainer">
+            <button className="submitButton" type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
       </div>
       <div className="signOutButton">
         <button className="signOut" onClick={(e) => signout()}>
