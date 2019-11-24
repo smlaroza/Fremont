@@ -55,10 +55,10 @@ export function useChat() {
     socket.on("users", (users) => {
       dispatch(getUsers(users))
     })
-    // CLEANUP (UNSUB)
-    return () => {
-      socket.off("message", message)
-    }
+    // // CLEANUP (UNSUB)
+    // return () => {
+    //   socket.off("message", message)
+    // }
   }, [dispatch])
 
   return { add, messages, users }

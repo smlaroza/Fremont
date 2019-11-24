@@ -32,9 +32,9 @@ export default (props) => {
         </form>
         <div className="chatContainer">
           <div className="users">
-            {users.map((u, i) => {
-              ;<p>{u.username}</p>
-            })}
+            {users.map((u, i) => (
+              <p className="displayName">{u.username}</p>
+            ))}
           </div>
           <div className="messaging">
             {messages.map((msg, i) => (
