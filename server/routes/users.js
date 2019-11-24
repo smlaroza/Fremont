@@ -27,7 +27,7 @@ router.post("/register", (req, res, next) => {
 router.post("/login", (req, res, next) => {
   const username = req.body.username
   let password = req.body.password
-
+  console.log(username, password)
   db.query(
     "SELECT salt FROM users WHERE username = ?",
     [username],
@@ -38,18 +38,19 @@ router.post("/login", (req, res, next) => {
         const sql = `
             SELECT count(1) as count FROM users WHERE username = ? AND password = ?
             `
-        db.query(sql, [username, password], (err, results, fields) => {})
-        if (results[0].count > 0) {
-          const token = jwt.sign({ username }, config.get("secret"))
-          res.json({
-            message: "Authenticated",
-            token
-          })
-        } else {
-          res.status(401).json({
-            message: "Username or Password are incorrect"
-          })
-        }
+        db.query(sql, [username, password], (err, results, fields) => {
+          if (results[0].count > 0) {
+            const token = jwt.sign({ username }, config.get("secret"))
+            res.json({
+              message: "Authenticated",
+              token
+            })
+          } else {
+            res.status(401).json({
+              message: "Username or Password are incorrect"
+            })
+          }
+        })
       } else {
         res.status(401).json({
           message: "User doesn't exist"

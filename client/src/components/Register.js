@@ -6,12 +6,12 @@ export default (props) => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
 
-  const { signin } = useAuth()
+  const { reg } = useAuth()
 
   function handleSubmit(e) {
     e.preventDefault()
 
-    signin(username, password).then((resp) => {
+    reg(username, password).then((resp) => {
       props.history.push("/")
     })
   }
@@ -46,6 +46,9 @@ export default (props) => {
         </form>
         <div className="registerLink">
           <Link to="/register">Register</Link>
+          <div className="loginLink">
+            <Link to="/login">Login</Link>
+          </div>
         </div>
       </div>
     </div>

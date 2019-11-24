@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux"
 import axios from "axios"
+import socket from "../../../lib/socket"
 
 //ACTION DEFINITIONS
 
@@ -39,8 +40,8 @@ export default (state = initialState, action) => {
 }
 
 //ACTIONS
-function login(username, password) {
-  return (dispatch) => {
+function login(username, password, dispatch) {
+  return new Promise((resolve, reject) => {
     axios
       .post("/login", { username, password })
       .then((resp) => {
@@ -51,13 +52,31 @@ function login(username, password) {
           type: LOGIN_SUCCESS,
           payload: username
         })
+        socket.emit("login", username)
+        resolve()
       })
       .catch((e) => {
         dispatch({
           type: LOGIN_FAILURE
         })
+        reject()
       })
-  }
+  })
+}
+
+function register(username, password, dispatch) {
+  return new Promise((resolve, reject) => {
+    axios
+      .post("/register", { username, password })
+      .then((resp) => {
+        login(username, password, dispatch).then(() => {
+          resolve()
+        })
+      })
+      .catch((e) => {
+        reject()
+      })
+  })
 }
 
 function logout() {
@@ -69,11 +88,18 @@ function logout() {
 
 export function useAuth() {
   const username = useSelector((appState) => appState.authState.username)
+  const isAuthenticated = useSelector(
+    (appState) => appState.authState.isAuthenticated
+  )
   const dispatch = useDispatch()
   const signin = (username, password) => {
     dispatch({ type: LOGIN_PENDING })
-    dispatch(login(username, password))
+    return login(username, password, dispatch)
   }
-  const signout = () => ({ type: LOGOUT })
-  return { username, signin, signout }
+  const reg = (username, password) => {
+    return register(username, password, dispatch)
+  }
+  const signout = () => dispatch(logout())
+
+  return { isAuthenticated, username, signin, signout, reg }
 }

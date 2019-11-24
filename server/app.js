@@ -4,6 +4,9 @@ const userRouter = require("./routes/users")
 const protectedRouter = require("./routes/protected")
 const jwt = require("express-jwt")
 const app = express()
+const server = require("http").Server(app)
+const io = require("socket.io")(server)
+require("./chat")(io)
 const config = require("config")
 
 app.use(express.json())
@@ -31,6 +34,6 @@ app.use(function(err, req, res, next) {
   })
 })
 
-app.listen(8080, () => {
+server.listen(8080, () => {
   console.log("Listening on port 8080")
 })
