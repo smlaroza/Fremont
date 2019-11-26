@@ -79,7 +79,9 @@ function register(username, password, dispatch) {
   })
 }
 
-function logout() {
+//CLEAN UP (UNSUB)
+function logout(message) {
+  socket.off("message", message)
   axios.defaults.headers.common = { Authorization: "" }
   return {
     type: LOGOUT
