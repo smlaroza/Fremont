@@ -35,6 +35,7 @@ export default (props) => {
         </div>
         <form className="sendMessage" onSubmit={handleSubmit}>
           <input
+            className="msg"
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}

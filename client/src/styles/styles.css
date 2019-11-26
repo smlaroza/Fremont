@@ -1,9 +1,16 @@
+@import url("https://fonts.googleapis.com/css?family=Rajdhani&display=swap");
+
 body {
-  background-color: rgba(108, 92, 108);
+  background: rgb(63, 94, 251);
+  background: linear-gradient(
+    90deg,
+    rgba(63, 94, 251, 1) 0%,
+    rgba(252, 70, 107, 1) 100%
+  );
+  font-family: "Rajdhani", sans-serif;
 }
 
 h1 {
-  font-family: Arial, Helvetica, sans-serif;
   color: white;
 }
 
@@ -16,7 +23,6 @@ h1 {
 }
 
 .loginButton {
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   padding: 5px 5px;
   width: 100px;
@@ -26,6 +32,8 @@ h1 {
   font-weight: bold;
   background: transparent;
   cursor: pointer;
+  outline: none;
+  font-family: "Rajdhani", sans-serif;
 }
 
 .userLogin {
@@ -33,20 +41,22 @@ h1 {
 }
 
 input {
-  width: 300px;
+  width: 500px;
   padding: 10px;
   background: transparent;
   outline: none;
   border: 2px solid white;
   border-radius: 10px;
-  font-size: 15px;
+  font-size: 17px;
   color: white;
+  font-family: "Rajdhani", sans-serif;
 }
 
 ::placeholder {
-  font-family: sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-size: 15px;
   font-style: italic;
+  color: white;
 }
 
 .lButtonContainer {
@@ -56,7 +66,7 @@ input {
 }
 
 .signOut {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-size: 15px;
   padding: 5px 5px;
   width: 100px;
@@ -80,16 +90,17 @@ input {
   flex: 1;
   padding: 40px;
   margin-top: 170px;
-  background: rgba(179, 167, 171);
+  background: rgba(135, 93, 187);
   border-radius: 20px;
 }
 
 .dashGreeting {
-  margin-left: 10px;
+  margin-left: 20px;
+  font-style: italic;
 }
 
 .submitButton {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-size: 15px;
   padding: 11px;
   width: 100px;
@@ -99,14 +110,15 @@ input {
   font-weight: bold;
   background: transparent;
   cursor: pointer;
-  margin-top: 5px;
+  margin-top: 1px;
   margin-left: 5px;
+  height: 50px;
 }
 
 .actualMessage {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Rajdhani", sans-serif;
   color: white;
-  font-size: 15px;
+  font-size: 17px;
 }
 
 .displayName {

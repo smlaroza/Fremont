@@ -45,9 +45,9 @@ export default (props) => {
           </div>
         </form>
         <div className="registerLink">
-          <Link to="/register">Register</Link>
+          <Link to="/register">Go To Register</Link>
           <div className="loginLink">
-            <Link to="/login">Login</Link>
+            <Link to="/login">Go To Login</Link>
           </div>
         </div>
       </div>
